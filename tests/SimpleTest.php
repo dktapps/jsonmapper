@@ -11,6 +11,7 @@
  * @link     https://github.com/cweiske/jsonmapper
  */
 require_once 'JsonMapperTest/Simple.php';
+require_once 'JsonMapperTest/ArrayValueForStringProperty.php';
 
 /**
  * Unit tests for JsonMapper's simple type handling
@@ -246,6 +247,17 @@ class SimpleTest extends \PHPUnit\Framework\TestCase
             'blubb', $sn->internalData['hyphen-value-setter']
         );
 
+    }
+
+    public function testMapArrayValueToStringProperty()
+    {
+        $jm = new JsonMapper();
+        $this->expectException(JsonMapper_Exception::class);
+        $this->expectExceptionMessage('JSON property "value" in class "JsonMapperTest_ArrayValueForStringProperty" is of type array and cannot be converted to string');
+        $jm->map(
+            json_decode('{"value":[]}'),
+            new JsonMapperTest_ArrayValueForStringProperty()
+        );
     }
 }
 ?>
