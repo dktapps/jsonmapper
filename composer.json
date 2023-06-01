@@ -1,6 +1,6 @@
 {
-    "name": "netresearch/jsonmapper",
-    "description": "Map nested JSON structures onto PHP classes",
+    "name": "pocketmine/netresearch-jsonmapper",
+    "description": "Fork of netresearch/jsonmapper with security fixes needed by pocketmine/pocketmine-mp",
     "license": "OSL-3.0",
     "autoload": {
         "psr-0": {"JsonMapper": "src/"}
