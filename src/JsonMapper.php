@@ -45,7 +45,7 @@ class JsonMapper
      *
      * @var boolean
      */
-    public $bExceptionOnMissingData = true;
+    public $bExceptionOnMissingData = false;
 
     /**
      * If the types of map() parameters shall be checked.
@@ -64,7 +64,7 @@ class JsonMapper
      *
      * @var boolean
      */
-    public $bStrictObjectTypeChecking = true;
+    public $bStrictObjectTypeChecking = false;
 
     /**
      * Throw an exception, if null value is found
