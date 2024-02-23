@@ -12,5 +12,6 @@
 
 class JsonMapperTest_ArrayValueForStringProperty
 {
-	public string $value;
+	/** @var string */
+	public $value;
 }
