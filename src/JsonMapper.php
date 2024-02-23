@@ -768,7 +768,7 @@ class JsonMapper
             || $type == 'integer' || $type == 'int'
             || $type == 'double' || $type == 'float'
             || $type == 'array' || $type == 'object'
-            || $type == 'NULL';
+            || $type == 'NULL'
             || $type === 'mixed';
     }
 
