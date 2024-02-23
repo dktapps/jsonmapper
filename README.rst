@@ -2,10 +2,6 @@
 JsonMapper - map nested JSON structures onto PHP classes
 ********************************************************
 
-.. image:: https://api.travis-ci.com/cweiske/jsonmapper.svg
-   :target: https://travis-ci.com/github/cweiske/jsonmapper
-   :align: right
-
 Takes data retrieved from a JSON__ web service and converts them
 into nested object and arrays - using your own model classes.
 
@@ -186,6 +182,10 @@ a property:
 
      public Contact $person;
 
+#. Constructor property promotion types (since PHP 8.0)::
+
+     public function __construct(protected Contact $person) {}
+
 #. ``@var $type`` docblock annotation of class properties::
 
     /**
@@ -229,6 +229,7 @@ Supported type names
   - ``double``, ``float``
   - ``array``
   - ``object``
+  - ``mixed``
 - Class names, with and without namespaces
 
   - ``Contact`` - exception will be thrown if the JSON value is ``null``
@@ -512,6 +513,15 @@ mapping it is finished:
 
 Now ``afterMapping()`` is called on each mapped object
 (if the class has that method).
+
+You may pass additional arguments to the post-mapping callback:
+
+.. code:: php
+
+    $jm = new JsonMapper();
+    $jm->postMappingMethod = 'afterMapping';
+    $jm->postMappingMethodArguments = [23, 'foo'];
+    $jm->map(...);
 
 
 ============
